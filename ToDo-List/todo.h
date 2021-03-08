@@ -71,16 +71,14 @@ int deleteItem(string Name) {
 	}
 
 	string line;
-	string result = "";
+
+	vector<string> lines;
 
 	while (getline(read_file, line)) {
-		result += line;
-		result += "\n";
+		lines.push_back(line);
 
 		line = "";
 	}
-
-	result.replace(result.find(Name), Name.size(), "");
 
 
 	ofstream write_file("C:\\To-Do\\todo.txt");
@@ -89,7 +87,11 @@ int deleteItem(string Name) {
 		return -1;
 	}
 
-	write_file << result;
+	for (int i = 0; i != lines.size(); i++) {
+		if (lines.at(i).size() >= 2 && lines.at(i).find(Name) == std::string::npos) {
+			write_file << lines.at(i) << "\n";
+		}
+	}
 
 	write_file.close();
 	read_file.close();
