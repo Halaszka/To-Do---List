@@ -348,10 +348,11 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 				//Get the Text of the selected Item
 				SendMessageA(listBox, LB_GETTEXT, rc, (LPARAM)text.c_str());
 
+				int rs;
 				//Delete Item
-				rc = deleteItem(text.c_str());
+				rs = deleteItem(text.c_str());
 
-				if (rc == -1) {
+				if (rs == -1) {
 					MessageBoxA(NULL, "Error something went wrong!", "Error", MB_OK | MB_ICONERROR);
 				}
 				else {
@@ -359,7 +360,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 				}
 
 				//Delete Item from List-Box
-				int rs = SendMessage(listBox, LB_DELETESTRING, rc + 1, 0);
+				rs = SendMessage(listBox, LB_DELETESTRING, rc, 0);
 
 				if (rs == LB_ERR) {
 					MessageBoxA(NULL, "Error something went wrong!", "Error", MB_OK | MB_ICONERROR);
