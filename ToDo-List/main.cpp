@@ -245,7 +245,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 
 	case WM_CREATE:
 		//Add the List-Box to the Window to show the current To-Do List
-		listBox = CreateWindow(WC_LISTBOX, NULL, WS_CHILD | WS_VISIBLE | LBS_HASSTRINGS | LBS_NOTIFY, 125, 100, 250, 250, hwnd, (HMENU)1, hInstance, NULL);
+		listBox = CreateWindow(WC_LISTBOX, NULL, WS_CHILD | WS_VISIBLE | LBS_HASSTRINGS | LBS_NOTIFY | WS_VSCROLL, 125, 100, 250, 250, hwnd, (HMENU)1, hInstance, NULL);
 		//Add the Edit-Box to the Window to add new Items
 		editBox = CreateWindow(WC_EDIT, NULL, WS_CHILD | WS_VISIBLE | ES_LEFT , 125, 350, 250, 23, hwnd, (HMENU)2, hInstance, NULL);
 		
@@ -313,7 +313,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 			len = GetWindowTextLength(editBox);
 
 			//If Len is zero
-			if (!len > 2) {
+			if (len < 2) {
 				MessageBoxA(hwnd, "Please enter more characters!", "Error", MB_OK | MB_ICONERROR);
 				return 0;
 			}
