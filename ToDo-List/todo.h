@@ -54,7 +54,9 @@ int getList() {
 		string line;
 
 		while (getline(file, line)) {
-			entries.push_back(line);
+			if (line.size() <= 16) {
+				entries.push_back(line);
+			}
 		}
 	}
 

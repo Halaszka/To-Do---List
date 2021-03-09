@@ -255,6 +255,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		SendMessage(listBox, WM_SETFONT, (WPARAM) hFontList, TRUE);
 		SendMessage(editBox, WM_SETFONT, (WPARAM)hFont, TRUE);
 
+		//Set Max Len for EditBox
+		SendMessage(editBox, EM_LIMITTEXT, 16, 0);
+
 		InvalidateRect(listBox, NULL, TRUE);
 
 
@@ -310,8 +313,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 			len = GetWindowTextLength(editBox);
 
 			//If Len is zero
-			if (len == 0) {
+			if (!len > 2) {
 				MessageBoxA(hwnd, "Please enter more characters!", "Error", MB_OK | MB_ICONERROR);
+				return 0;
 			}
 
 			//Get the Text from the Edit Box
@@ -342,7 +346,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 			rc = SendMessage(listBox, LB_GETCURSEL, 0, 0);
 			//Error if nothing is selected
 			if (rc == LB_ERR) {
-				MessageBoxA(NULL, "You have to select an item to be able to remove it!", "Error", MB_OK | MB_ICONERROR);
+				MessageBoxA(hwnd, "You have to select an item to be able to remove it!", "Error", MB_OK | MB_ICONERROR);
 			}
 			else {
 				//Get the Text of the selected Item
@@ -353,17 +357,17 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 				rs = deleteItem(text.c_str());
 
 				if (rs == -1) {
-					MessageBoxA(NULL, "Error something went wrong!", "Error", MB_OK | MB_ICONERROR);
+					MessageBoxA(hwnd, "Error something went wrong!", "Error", MB_OK | MB_ICONERROR);
 				}
 				else {
-					MessageBoxA(NULL, "Deleted!", "Information", MB_OK | MB_ICONINFORMATION);
+					MessageBoxA(hwnd, "Deleted!", "Information", MB_OK | MB_ICONINFORMATION);
 				}
 
 				//Delete Item from List-Box
 				rs = SendMessage(listBox, LB_DELETESTRING, rc, 0);
 
 				if (rs == LB_ERR) {
-					MessageBoxA(NULL, "Error something went wrong!", "Error", MB_OK | MB_ICONERROR);
+					MessageBoxA(hwnd, "Error something went wrong!", "Error", MB_OK | MB_ICONERROR);
 				}
 
 			}
