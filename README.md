@@ -20,6 +20,6 @@
 <h3>Blackberry - V 1.2 🍇</h3>
 <img src="https://user-images.githubusercontent.com/72759193/111850894-cc4d4f00-8911-11eb-85f9-7f554b8f4039.png" />
 
-</h3> Download: </h3>
+<h3>Download</h3>
 <p><a href="https://github.com/Halaszka/ToDo-List/raw/master/ToDo-List.exe"><b>.exe</b></a></p>
-<a href="https://github.com/Halaszka/ToDo-List/archive/refs/heads/master.zip"><b>.zip</b></a>
+<p><a href="https://github.com/Halaszka/ToDo-List/archive/refs/heads/master.zip"><b>.zip</b></a></p>
