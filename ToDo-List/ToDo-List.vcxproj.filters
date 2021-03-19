@@ -29,5 +29,8 @@
     <ClInclude Include="todo.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="drawings.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

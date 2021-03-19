@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="customBtn.h" />
     <ClInclude Include="colors.h" />
+    <ClInclude Include="drawings.h" />
     <ClInclude Include="todo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
