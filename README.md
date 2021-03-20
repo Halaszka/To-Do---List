@@ -15,6 +15,19 @@
 
 - Tasks that have expired after a certain time. ⏳
 
+<h2>Information 📄</h2>
+
+<h4>Source-Code 🔧</h4>
+<ul>
+  <li>If you want to edit the Source-Code you have to include SQLite since ToDo-List V 1.2 - Blueberry</li>
+</ul>
+
+<h4>Operating system</h4>
+<ul>
+  <li>Windows</li>
+</ul>
+
+
 
 <h2>Current version</h2>
 <h3>Blueberry - V 1.2 🍇</h3>
